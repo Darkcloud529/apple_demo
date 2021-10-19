@@ -20,6 +20,7 @@
             text-indent: -99999px !important;
             background-image: url(img/globalnav_apple_image__b5er5ngrzxqq_small.svg);
             background-repeat: no-repeat;
+            margin-left: 10%;
         }
         .container-padding{padding-top: 80px;padding-bottom: 80px;}
         .carousel-inner img {
@@ -70,8 +71,10 @@
         .pc-img{display:block !important}
         .mobile-img{display:none !important}
 
-        #pc-footer{display:block !important}
-        #mobile-footer{display:none !important}
+        #pc-footer{display:block !important; }
+        #mobile-footer{display:none !important; }
+
+        footer {background-color: #ccc; padding: 4%;}
 
         @media (max-width: 768px) {
             .carousel-caption {
@@ -236,7 +239,9 @@
 
     <!-- kakao map  ----------------->
     <!-- 지도를 표시할 div 입니다 -->
-    <div id="map" style="width:768px;height:350px;margin: 0 auto;"></div>
+    <div id="Loc" class="container text-center">
+      <h3>Apple Korea</h3>
+      <div id="map" style="width:100%;height:350px;"></div>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8c513bae3c8f2fa138ca664de774c6c"></script>
     <script>
@@ -248,194 +253,211 @@
 
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+    // 마커가 표시될 위치입니다 
+      var markerPosition  = new kakao.maps.LatLng(37.525385444045256, 126.89128658402383); 
+
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+          position: markerPosition
+      });
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+
+      // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+      // marker.setMap(null);    
     </script>
+    </div>
     <!-- kakao map  ----------------->
 
 
     <!-- footer -->
-    <!-- desktop -->
+   
+        <!-- desktop -->
     <div id="pc-footer" class="container container-padding ">
-        <div class="row">
-            <div class="col-sm-3">
-                Shop and Learn<br>
-                Mac<br>
-                iPad<br>
-                iPhone<br>
-                Watch<br>
-                TV<br>
-                Music<br>
-                AirPods<br>
-                HomePod<br>
-                iPod touch<br>
-                AirTag<br>
-                Accessories<br>
-                Gift Cards
-            </div>
-            <div class="col-sm-3">
-                Services<br>
-                Apple Music<br>
-                Apple TV+<br>
-                Apple Fitness+<br>
-                Apple News+<br>
-                Apple Arcade<br>
-                iCloud<br>
-                Apple One<br>
-                Apple Card<br>
-                Apple Books<br>
-                Apple Podcasts<br>
-                App Store<br>
-                Account<br>
-                Manage Your Apple ID<br>
-                Apple Store Account<br>
-                iCloud.com
+      <div class="row">
+          <div class="col-sm-3">
+              Shop and Learn<br>
+              Mac<br>
+              iPad<br>
+              iPhone<br>
+              Watch<br>
+              TV<br>
+              Music<br>
+              AirPods<br>
+              HomePod<br>
+              iPod touch<br>
+              AirTag<br>
+              Accessories<br>
+              Gift Cards
+          </div>
+          <div class="col-sm-3">
+              Services<br>
+              Apple Music<br>
+              Apple TV+<br>
+              Apple Fitness+<br>
+              Apple News+<br>
+              Apple Arcade<br>
+              iCloud<br>
+              Apple One<br>
+              Apple Card<br>
+              Apple Books<br>
+              Apple Podcasts<br>
+              App Store<br>
+              Account<br>
+              Manage Your Apple ID<br>
+              Apple Store Account<br>
+              iCloud.com
 
-            </div>
-            <div class="col-sm-3">
-                Apple Store<br>
-                Find a Store<br>
-                Shop Online<br>
-                Genius Bar<br>
-                Today at Apple<br>
-                Apple Camp<br>
-                Apple Store App<br>
-                Refurbished and Clearance<br>
-                Financing<br>
-                Apple Trade In<br>
-                Order Status<br>
-                Shopping Help
-            </div>
-            <div class="col-sm-3">
-                Apple Values<br>
-                Accessibility<br>
-                Education<br>
-                Environment<br>
-                Inclusion and Diversity<br>
-                Privacy<br>
-                Racial Equity and Justice<br>
-                Supplier Responsibility<br>
-                About Apple<br>
-                Newsroom<br>
-                Apple Leadership<br>
-                Career Opportunities<br>
-                Investors<br>
-                Ethics & Compliance<br>
-                Events<br>
-                Contact Apple
-            </div>
+          </div>
+          <div class="col-sm-3">
+              Apple Store<br>
+              Find a Store<br>
+              Shop Online<br>
+              Genius Bar<br>
+              Today at Apple<br>
+              Apple Camp<br>
+              Apple Store App<br>
+              Refurbished and Clearance<br>
+              Financing<br>
+              Apple Trade In<br>
+              Order Status<br>
+              Shopping Help
+          </div>
+          <div class="col-sm-3">
+              Apple Values<br>
+              Accessibility<br>
+              Education<br>
+              Environment<br>
+              Inclusion and Diversity<br>
+              Privacy<br>
+              Racial Equity and Justice<br>
+              Supplier Responsibility<br>
+              About Apple<br>
+              Newsroom<br>
+              Apple Leadership<br>
+              Career Opportunities<br>
+              Investors<br>
+              Ethics & Compliance<br>
+              Events<br>
+              Contact Apple
+          </div>
+      </div>
+  </div>
+  <!-- desktop -->
+  <!-- mobile -->
+  <div class="panel-group " id="mobile-footer">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse1">
+              Shop and Learn</a>
+          </h4>
         </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">
+              Mac<br>
+              iPad<br>
+              iPhone<br>
+              Watch<br>
+              TV<br>
+              Music<br>
+              AirPods<br>
+              HomePod<br>
+              iPod touch<br>
+              AirTag<br>
+              Accessories<br>
+              Gift Cards
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse2">
+              Services</a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">
+              Apple Music<br>
+              Apple TV+<br>
+              Apple Fitness+<br>
+              Apple News+<br>
+              Apple Arcade<br>
+              iCloud<br>
+              Apple One<br>
+              Apple Card<br>
+              Apple Books<br>
+              Apple Podcasts<br>
+              App Store<br>
+              Account<br>
+              Manage Your Apple ID<br>
+              Apple Store Account<br>
+              iCloud.com
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse3">
+              Apple Store</a>
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">
+              Find a Store<br>
+              Shop Online<br>
+              Genius Bar<br>
+              Today at Apple<br>
+              Apple Camp<br>
+              Apple Store App<br>
+              Refurbished and Clearance<br>
+              Financing<br>
+              Apple Trade In<br>
+              Order Status<br>
+              Shopping Help
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse4">
+              Apple Values</a>
+            </h4>
+          </div>
+          <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body">
+              Accessibility<br>
+              Education<br>
+              Environment<br>
+              Inclusion and Diversity<br>
+              Privacy<br>
+              Racial Equity and Justice<br>
+              Supplier Responsibility<br>
+              About Apple<br>
+              Newsroom<br>
+              Apple Leadership<br>
+              Career Opportunities<br>
+              Investors<br>
+              Ethics & Compliance<br>
+              Events<br>
+              Contact Apple
+            </div>
+          </div>
+        </div>
+      <!-- mobile -->
+      </div>
+    <footer>
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-4">Copyright © 2021 Apple Inc. 모든 권리 보유.</div>
+          <div class="col-sm-8">개인정보 처리방침 | 웹 사이트 이용 | 약관 판매 및 환불 | 법적 고지 | 사이트 맵</div>
+      </div>
     </div>
-    <!-- desktop -->
-    <!-- mobile -->
-    <div class="panel-group " id="mobile-footer">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse1">
-                Shop and Learn</a>
-            </h4>
-          </div>
-          <div id="collapse1" class="panel-collapse collapse">
-            <div class="panel-body">
-                Mac<br>
-                iPad<br>
-                iPhone<br>
-                Watch<br>
-                TV<br>
-                Music<br>
-                AirPods<br>
-                HomePod<br>
-                iPod touch<br>
-                AirTag<br>
-                Accessories<br>
-                Gift Cards
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse2">
-                Services</a>
-            </h4>
-          </div>
-          <div id="collapse2" class="panel-collapse collapse">
-            <div class="panel-body">
-                Apple Music<br>
-                Apple TV+<br>
-                Apple Fitness+<br>
-                Apple News+<br>
-                Apple Arcade<br>
-                iCloud<br>
-                Apple One<br>
-                Apple Card<br>
-                Apple Books<br>
-                Apple Podcasts<br>
-                App Store<br>
-                Account<br>
-                Manage Your Apple ID<br>
-                Apple Store Account<br>
-                iCloud.com
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse3">
-                Apple Store</a>
-            </h4>
-          </div>
-          <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-                Find a Store<br>
-                Shop Online<br>
-                Genius Bar<br>
-                Today at Apple<br>
-                Apple Camp<br>
-                Apple Store App<br>
-                Refurbished and Clearance<br>
-                Financing<br>
-                Apple Trade In<br>
-                Order Status<br>
-                Shopping Help
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#mobile-footer" href="#collapse4">
-                Apple Values</a>
-              </h4>
-            </div>
-            <div id="collapse4" class="panel-collapse collapse">
-              <div class="panel-body">
-                Accessibility<br>
-                Education<br>
-                Environment<br>
-                Inclusion and Diversity<br>
-                Privacy<br>
-                Racial Equity and Justice<br>
-                Supplier Responsibility<br>
-                About Apple<br>
-                Newsroom<br>
-                Apple Leadership<br>
-                Career Opportunities<br>
-                Investors<br>
-                Ethics & Compliance<br>
-                Events<br>
-                Contact Apple
-              </div>
-            </div>
-          </div>
-        <!-- mobile -->
-      </div>
-      <hr>
-      <div class="container">
-        <div class="row">
-            <div class="col-sm-4">Copyright © 2021 Apple Inc. 모든 권리 보유.</div>
-            <div class="col-sm-8">개인정보 처리방침 | 웹 사이트 이용 | 약관 판매 및 환불 | 법적 고지 | 사이트 맵</div>
-        </div>
-      </div>
+    </footer>
+  
 </body>
 </html>
